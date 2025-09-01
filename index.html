@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>EnergeticallySleeping</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css"/>
+</head>
+<body>
+
+<!-- particles background -->
+<div id="tsparticles"></div>
+
+<div id="site-wrapper">
+    <div data-scroll-container>
+
+        <!-- navigation -->
+        <nav>
+            <a href="#fandoms">fandoms</a>
+            <a href="#contact">contact</a>
+        </nav>
+
+        <!-- hero / header -->
+        <header data-scroll-section>
+            <div class="content">
+                <h1 data-scroll data-scroll-speed="2">Hello, I'm EnergeticallySleeping</h1>
+                <p data-scroll data-scroll-speed="-1">
+                    I write and talk about fandoms I love... and the ones that keep me up at night.
+                </p>
+            </div>
+        </header>
+
+        <!-- fandoms -->
+        <section id="fandoms" data-scroll-section>
+            <div class="content">
+                <h2 data-scroll data-scroll-speed="1">Fandoms</h2>
+                <p>The fandoms I mostly write in...:</p>
+                <ul class="fandom-list">
+                    <li>Honkai: Star Rail - Jing Yuan/Luocha, Mydei/Phainon</li>
+                    <li>Genshin Impact - Dottore/Pantalone</li>
+                    <li>Katekyou Hitman Reborn - R27</li>
+                    <li>Bungou Stray Dogs - Dazai/Dostoevsky</li>
+                    <li>Kuroko no Basket - Imayoshi/Hanamiya</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- contact -->
+        <section id="contact" data-scroll-section>
+            <div class="content">
+                <h2>Contact</h2>
+                <p>
+                    Find me on
+                    <a href="https://archiveofourown.org/users/EnergeticallySleeping" target="_blank" rel="noopener" class="contact-link">
+                        AO3
+                    </a>
+                </p>
+                <p>
+                    Email:
+                    <a href="mailto:firoprochainezoshat@gmail.com" class="contact-link">
+                        firoprochainezoshat@gmail.com
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <footer data-scroll-section>
+            <div class="content">
+                <p>© 2025 EnergeticallySleeping</p>
+            </div>
+        </footer>
+
+    </div>
+</div>
+
+<!-- scripts -->
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script>
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true
+    });
+
+    // smooth nav scroll
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('href');
+            scroll.scrollTo(target);
+        });
+    });
+
+    // particles background
+    tsParticles.load("tsparticles", {
+        background: { color: "transparent" },
+        particles: {
+            number: { value: 80 },
+            size: { value: 2.5 },
+            move: { enable: true, speed: 1.2 },
+            opacity: { value: 0.25 },
+            links: { enable: true, distance: 150, color: "#fff", opacity: 0.2, width: 1 }
+        },
+        interactivity: {
+            events: { onClick: { enable: true, mode: "push" } },
+            modes: { push: { quantity: 3 } }
+        }
+    });
+</script>
+
+</body>
+</html>
